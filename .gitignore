@@ -1,0 +1,45 @@
+# ------------------------------------------------------------------------
+# 1. THE BIG ONES: Binaries and Plugins (The reason your push failed)
+# ------------------------------------------------------------------------
+.terraform/
+.terraform.lock.hcl
+
+# ------------------------------------------------------------------------
+# 2. THE DANGEROUS ONES: State files (Contains secrets/passwords)
+# ------------------------------------------------------------------------
+*.tfstate
+*.tfstate.*
+
+# ------------------------------------------------------------------------
+# 3. THE SENSITIVE ONES: Variables (Where you put your API keys)
+# ------------------------------------------------------------------------
+# Ignore all .tfvars files
+*.tfvars
+*.tfvars.json
+
+# Except for a template/example file so others know what to fill in
+!example.tfvars
+!variables.tfvars.example
+
+# ------------------------------------------------------------------------
+# 4. THE SYSTEM ONES: Logs and Overrides
+# ------------------------------------------------------------------------
+crash.log
+crash.*.log
+*.log
+
+# Local developer overrides (e.g., testing a specific sub-module)
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# CLI configuration files
+.terraformrc
+terraform.rc
+
+# ------------------------------------------------------------------------
+# 5. ENVIRONMENT SPECIFICS (If using Terragrunt or similar)
+# ------------------------------------------------------------------------
+.terragrunt-cache/
+.history/
